@@ -7,7 +7,7 @@ public class JiraTable {
     private  String severity;
     private String type;
     private String Summary;
-
+    private String Description;
     public int getId() {
         return id;
     }
@@ -48,6 +48,13 @@ public class JiraTable {
         Summary = summary;
     }
 
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
 
     @Override
     public String toString() {
@@ -57,6 +64,7 @@ public class JiraTable {
                 ", severity='" + severity + '\'' +
                 ", type='" + type + '\'' +
                 ", Summary='" + Summary + '\'' +
+                ", Description='" + Description + '\'' +
                 '}';
     }
 }

@@ -1,4 +1,6 @@
 package com.learn.Automation.unzip;
+import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,6 +10,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+@Component
 public class UnzipFiles {
 //    public static void main(String[] args) {
 //        String zipFilePath = "C:/Users/SIDHU/Downloads/Network-Vulnerability-Assessment-Report.zip";
@@ -17,7 +20,7 @@ public class UnzipFiles {
 //        unzip(zipFilePath, destDir);
 //    }
 
-    public static List<String> unzip(String zipFilePath, String destDir) {
+    public  List<String> unzip(String zipFilePath, String destDir) {
         File dir = new File(destDir);
         List<String> allpdf = new ArrayList<>();
         // create output directory if it doesn't exist

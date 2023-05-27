@@ -5,6 +5,7 @@ import com.learn.Automation.dto.JiraTable;
 import com.spire.pdf.PdfDocument;
 import com.spire.pdf.utilities.PdfTable;
 import com.spire.pdf.utilities.PdfTableExtractor;
+import org.springframework.stereotype.Component;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,10 +15,11 @@ import java.util.List;
 import java.util.Map;
 
 
+@Component
 public class PDFTable2Text {
 
 
-    public static List<JiraTable> pdf2Table(String pdfPath) throws IOException {
+    public  List<JiraTable> pdf2Table(String pdfPath) throws IOException {
         //Load a sample PDF document
         // String PDF = "C:/Users/SIDHU/Downloads/Network-Vulnerability-Assessment-Report/pdf.pdf";
         Map<String,String> resultMap =  new HashMap<>();
@@ -50,7 +52,7 @@ public class PDFTable2Text {
                         jiraTable.setCves(table.getText(i,0));
                         jiraTable.setSeverity(table.getText(i,1));
                         String sum = table.getText(i+1,0).length() !=0 ? table.getText(i,2).replace("\n", " ") : table.getText(i,2).replace("\n", " ")+table.getText(i+1,2).replace("\n", " ");
-                        jiraTable.setSummary(table.getText(i,2).replace("\n", " "));
+                        jiraTable.setDescription(table.getText(i,2).replace("\n", " "));
                         jiraTables.add(jiraTable);
                         for (int j = 0; j < table.getColumnCount(); j++) {
                             //Extract data from the current table cell and append to the StringBuilder
